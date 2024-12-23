@@ -1107,7 +1107,7 @@ namespace vk
 			// Now transform it into bitcode
 			SpirVProgramInfo buildInfo;
 			SpirVAsmSource program(spvasm);
-			if (!assembleSpirV(&program, dst, &buildInfo, SPIRV_VERSION_1_0))
+			if (!assembleSpirV(&program, dst, &buildInfo, SPIRV_VERSION_1_5))
 				return SLANG_FAIL;
 			return SLANG_OK;
 		}
