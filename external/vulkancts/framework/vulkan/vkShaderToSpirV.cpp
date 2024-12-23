@@ -863,7 +863,8 @@ namespace vk
 					<< "            \""+stage + "\", \n"
 					<< "            \"-entry\", \n"
 					<< "            \"main\", \n"
-					<< "            \"-allow-glsl\"\n"
+					<< "            \"-allow-glsl\", \n"
+					<< "            \"-matrix-layout-row-major\"\n"
 					<< "        ]\n"
 					<< "    ]\n"
 					<< "}\n";
@@ -1106,7 +1107,7 @@ namespace vk
 			// Now transform it into bitcode
 			SpirVProgramInfo buildInfo;
 			SpirVAsmSource program(spvasm);
-			if (!assembleSpirV(&program, dst, &buildInfo, SPIRV_VERSION_1_0))
+			if (!assembleSpirV(&program, dst, &buildInfo, SPIRV_VERSION_1_5))
 				return SLANG_FAIL;
 			return SLANG_OK;
 		}
@@ -1200,7 +1201,7 @@ namespace vk
 							compileRequest->addSearchPath(slangDllPath.c_str());
 							compileRequest->setDiagnosticCallback(&_diagnosticCallback, nullptr);
 							compileRequest->setCommandLineCompilerMode();
-							const char* args[] = { "-target", "spirv", "-stage", slangShaderStage.c_str(), "-entry", "main", "-allow-glsl", temp_fname.c_str(), "-o", "temp.spv" };
+							const char* args[] = { "-target", "spirv", "-stage", slangShaderStage.c_str(), "-entry", "main", "-allow-glsl", "-matrix-layout-row-major", temp_fname.c_str(), "-o", "temp.spv" };
 							int argCount = sizeof(args) / sizeof(char*);//8;
 							result = compileRequest->processCommandLineArguments(args, argCount);
 							if (result != SLANG_OK) {
