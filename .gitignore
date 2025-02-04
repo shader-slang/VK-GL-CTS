@@ -13,3 +13,5 @@
 *.ivf
 *.obu
 *.yuv
+build/*
+BUILD_DIRECTORY

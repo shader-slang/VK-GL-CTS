@@ -292,6 +292,7 @@ class GitRepo (Source):
             logging.debug("couldn't find revision " + self.revision + " locally; fetching")
             run(["git", "fetch"] + force_arg + ["--tags", url, "+refs/heads/*:refs/remotes/origin/*"])
             run(["git", "checkout"] + force_arg + [self.revision])
+            run(["git", "submodule", "update", "--init", "--recursive"])
 
         if(self.patch != ""):
             patchFile = os.path.join(EXTERNAL_DIR, self.patch)
@@ -405,6 +406,13 @@ PACKAGES = [
         "git@github.com:Igalia/video_generator.git",
         "426300e12a5cc5d4676807039a1be237a2b68187",
         "video_generator"),
+
+	# SLANG git repo
+	GitRepo(
+		"https://github.com/shader-slang/slang.git",
+		"git@github.com:shader-slang/ESExtractor.git",
+		"origin/master",
+		"slang"),
 ]
 
 def parseArgs ():
