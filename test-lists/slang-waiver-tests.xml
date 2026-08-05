@@ -1411,5 +1411,8 @@
     <t>dEQP-VK.ssbo.layout.random.8bit.scalar.56</t>
     <t>dEQP-VK.ssbo.layout.random.8bit.scalar.57</t>
     <!-- end https://github.com/shader-slang/slang/issues/5840 -->
+    <!-- https://github.com/shader-slang/slang/issues/12364 -->
+    <t>dEQP-VK.descriptor_indexing.storage_image_minNonUniform</t>
+    <!-- end https://github.com/shader-slang/slang/issues/12364 -->
     </waiver>
 </waiver_list>
