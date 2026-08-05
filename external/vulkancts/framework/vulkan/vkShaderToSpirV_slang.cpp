@@ -555,10 +555,10 @@ public:
                     return SLANG_FAIL;
                 }
             }
-            handle = LoadLibraryA("slang.dll");
+            handle = LoadLibraryA("slang-compiler.dll");
             if (NULL == handle)
             {
-                SLANG_LOG << "failed to load slang.dll" << std::endl;
+                SLANG_LOG << "failed to load slang-compiler.dll" << std::endl;
                 return SLANG_FAIL;
             }
         }
@@ -1237,10 +1237,10 @@ public:
                 SLANG_LOG << "failed to set slang dll PATH" << std::endl;
                 return SLANG_FAIL;
             }
-            HMODULE handle = LoadLibraryA("slang.dll");
+            HMODULE handle = LoadLibraryA("slang-compiler.dll");
             if (NULL == handle)
             {
-                SLANG_LOG << "failed to load slang.dll" << std::endl;
+                SLANG_LOG << "failed to load slang-compiler.dll" << std::endl;
                 return SLANG_FAIL;
             }
 
